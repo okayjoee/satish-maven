@@ -4,6 +4,7 @@ pipeline {
       timeout(time: 1, unit: 'HOURS') 
        timestamps() 
      }
+    triggers { cron('* * * * * ') }
     stages {
         stage('Hello') {
             steps {
