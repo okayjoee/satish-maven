@@ -4,7 +4,7 @@ pipeline {
       timeout(time: 1, unit: 'HOURS') 
        timestamps() 
      }
-    triggers { pollSCM('* * * * * ') }
+    triggers { upstream(upstreamProjects: 'Basic-Pipeline', threshold: hudson.model.Result.SUCCESS) }
     stages {
         stage('Hello') {
             steps {
